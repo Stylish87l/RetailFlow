@@ -1,0 +1,71 @@
+Build a modern full-stack multi-tenant SaaS POS (Point of Sale) system for retail shops. The project must support frontend/backend modular code in `/client` and `/server` folders.
+
+🎯 Functional Scope:
+
+🔐 Authentication & Role Management
+– Username + password login system  
+– JWT-based access tokens and refresh tokens  
+– Admin dashboard for assigning roles (Admin, Cashier, Sales Attendant, Staff)  
+– Role-based visual rendering across the entire app  
+– Only original cashier/admin may initiate returns or payment modifications  
+
+🏬 Multi-Tenant SaaS Architecture
+– Isolated shop data via subdomain/shop ID logic  
+– Custom branding: logos, colors, themes per tenant  
+– Dynamic ThemeLoader applies styles based on tenant ID  
+
+🛒 Inventory & POS Workflow
+– Multi-outlet inventory per tenant  
+– Barcode scanning using QuaggaJS or ZXing (JS-based)  
+– Drag-and-drop, touch-friendly product grid for tablet use  
+– Add/remove items to cart, hold/resume functionality  
+– Custom product entry (non-catalog items)  
+– Product media: multiple images, short videos, and rich descriptions  
+– Discount engine: fixed and percentage discounts  
+– Multi-language support  
+
+📤 Order Processing & Cart Logic
+– Sales attendant builds cart and sends to cashier for checkout  
+– Cart states: active carting, pending carts, and processing queue  
+– Cashier may assign attendant/customer name to final order  
+
+💳 Payment Flow
+– Split payments via Cash, Mobile Money (MoMo), and Card  
+– Modify payment method **before** and **after** receipt print  
+– Preserve bill number and order details during changes  
+– Only original cashier/admin can modify or process changes  
+– Updated receipt must reflect payment edits  
+– Audit log with user, timestamp, and action trail  
+
+🔁 Returns Module
+– Support both partial item returns and whole-order returns  
+– Role-restricted access for initiating returns  
+– Preserve billing details; log all modifications  
+
+💵 Cashier Handover
+– Role-aware module for end-of-shift handover  
+– – Graphical Ghana cedi handover calculator with interactive note images (¢1–¢200), quantity inputs, total cash counting per denomination, overall handover summary, and automatic difference calculation between expected and submitted amounts 
+– Daily summary of cash flow and submission confirmation  
+
+📊 Reporting & Dashboard
+– Daily/monthly sales reports by outlet and tenant  
+– Dashboard.jsx shows KPIs tailored to user role  
+– Optional analytics: top sellers, revenue charts, inventory warnings  
+– Role-based dashboard data visibility  
+
+🖥️ Visual & UI Features
+– Responsive layout for desktop and tablet  
+– Dark Mode toggle with persistent theme setting  
+– Dynamic UI adapts visuals and access based on logged-in role  
+– Live component rendering for theme, role, and tenant  
+
+⚙️ Backend Tech Stack
+– Express.js or FastAPI for RESTful API  
+– PostgreSQL or MongoDB with Prisma or SQLAlchemy ORM  
+– Modular folder architecture: auth, tenants, inventory, orders, payments, handover, dashboard, returns  
+  
+
+📱 PWA & Deployment
+– Installable offline app (Progressive Web App)  
+– Deploy on Replit or Render with preview URL  
+– GitHub-integrated CI/CD pipeline support
